@@ -25,3 +25,37 @@ dependencies {
     // Other dependencies your app might use
 }
 ```
+
+IMPLEMENTATION
+----
+#### BlurredImageView.
+This library has different methods which you can use to maintain your image blur.
+ - blurRadius - "blureness" [0 ... 25]
+ - downScale - "downScale" [0 ... 1]
+ 
+xml:
+```xml
+<vas.com.blur4all.BlurredImageView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scaleType="centerCrop"
+    android:src="@drawable/wallhaven_680095"
+    app:blurRadius="20"
+    app:downScale="0.9" />
+```
+java:
+```
+BlurredImageView blurredImageView = findViewById(R.id.blurredImageView);
+blurredImageView.setBlurRadius(20);
+blurredImageView.setScale(0.9);
+```
+#### Blur.
+```
+Bitmap blured = Blur.apply(getContext(), bitmap, blurRadius);
+```
+#### BluredActivity. 
+TODO: 
+#### BlurActionBarDrawerToggle. 
+TODO:
+#### BlurDialog. 
+TODO:

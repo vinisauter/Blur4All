@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,4 +8,19 @@
     tools:context=".sample.MainActivity"
     tools:showIn="@layout/activity_main">
 
-</android.support.constraint.ConstraintLayout>
+    <vas.com.blur4all.BlurredImageView
+        android:id="@+id/blurredImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/wallhaven_680095"
+        app:blurRadius="20"
+        app:downScale="4" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="70dp"
+        android:src="@drawable/wallhaven_680095" />
+</FrameLayout>

@@ -10,8 +10,6 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.TransitionDrawable;
 import android.media.ThumbnailUtils;
 import android.os.AsyncTask;
-import android.os.Build;
-import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.widget.RemoteViews;
 
@@ -20,7 +18,6 @@ import android.widget.RemoteViews;
  */
 @SuppressWarnings({"WeakerAccess", "unused"})
 @RemoteViews.RemoteView
-@RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
 public class BlurredImageView extends android.support.v7.widget.AppCompatImageView {
     private int blurRadius = 10;
     private float scale = 1;
@@ -81,10 +78,20 @@ public class BlurredImageView extends android.support.v7.widget.AppCompatImageVi
             int width = drawable.getIntrinsicWidth();
             int height = drawable.getIntrinsicHeight();
 
-            int maxWidth = getMaxWidth();
+            int maxWidth;
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
+                maxWidth = getMaxWidth();
+            } else {
+                maxWidth = getMeasuredWidth();
+            }
             if (width < maxWidth)
                 maxWidth = width;
-            int maxHeight = getMaxHeight();
+            int maxHeight;
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
+                maxHeight = getMaxHeight();
+            } else {
+                maxHeight = getMeasuredHeight();
+            }
             if (height < maxHeight)
                 maxHeight = height;
 
@@ -132,7 +139,6 @@ public class BlurredImageView extends android.support.v7.widget.AppCompatImageVi
         @Override
         protected void onPostExecute(Drawable drawable_new) {
             if (drawable_old != null && drawable_new != null) {
-//            BlurredImageView.super.setImageDrawable(drawable);
                 Drawable[] layers = new Drawable[2];
                 layers[0] = drawable_old;
                 layers[1] = drawable_new;
