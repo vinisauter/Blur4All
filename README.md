@@ -1,6 +1,8 @@
 # Blur4All
 
 [![](https://jitpack.io/v/vinisauter/Blur4All.svg)](https://jitpack.io/#vinisauter/Blur4All)
+[![API](https://img.shields.io/badge/API-14%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=14)
+
 
 # Integrating into your project
 This library is available in [JitPack.io](https://jitpack.io/) repository.
