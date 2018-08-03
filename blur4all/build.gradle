@@ -4,10 +4,10 @@ android {
     compileSdkVersion 27
 
     defaultConfig {
-        minSdkVersion 14
+        minSdkVersion 16
         versionCode 1
         versionName "1.0"
-        renderscriptTargetApi 14
+        renderscriptTargetApi 16
         renderscriptSupportModeEnabled true
     }
     buildTypes {
